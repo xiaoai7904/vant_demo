@@ -23,6 +23,7 @@
       "esnext",
       "dom",
       "dom.iterable",
+      "ES2015",
       "scripthost"
     ]
   },
