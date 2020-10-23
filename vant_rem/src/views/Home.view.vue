@@ -1,16 +1,12 @@
 <template>
   <div class="home">
     <div class="home-top">
-      <div class="home-top-bg-wrap"><img class="home-top-bg" :src="headerBg" alt="" /></div>
-      <span class="home-top-des">Vue3+Vant+vw适配</span>
+      <div class="home-top-bg-wrap"><img class="home-top-bg" :src="require('../assets/images/pic_dabg.png')" alt="" /></div>
+      <span class="home-top-des">Vue3+Vant+rem适配</span>
     </div>
     <van-tabs v-model:active="active">
       <van-tab title="标签 1">
-        <van-cell title="选择单个日期" :value="date" @click="show = true" />
-        <van-calendar v-model:show="show" @confirm="onConfirm" />
-      </van-tab>
-      <van-tab title="标签 2">
-        <van-form @submit="onSubmit">
+         <van-form @submit="onSubmit">
           <van-field v-model="username" name="用户名" label="用户名" placeholder="用户名" :rules="[{ required: true, message: '请填写用户名' }]" />
           <van-field v-model="password" type="password" name="密码" label="密码" placeholder="密码" :rules="[{ required: true, message: '请填写密码' }]" />
           <div style="margin: 16px;">
@@ -20,6 +16,13 @@
           </div>
         </van-form>
       </van-tab>
+      <van-tab title="标签 2">
+        <van-field v-model="sms" center clearable label="短信验证码" placeholder="请输入短信验证码">
+          <template #button>
+            <van-button size="small" type="primary">发送验证码</van-button>
+          </template>
+        </van-field>
+      </van-tab>
       <van-tab title="标签 3">内容 3</van-tab>
       <van-tab title="标签 4">内容 4</van-tab>
     </van-tabs>
@@ -28,33 +31,8 @@
 
 <script lang="ts">
 /* eslint @typescript-eslint/no-var-requires: "off" */
-import { defineComponent } from "vue";
-const headerBg = require("../assets/images/pic_dabg.png");
-
-export default defineComponent({
-  name: 'Home',
-  data() {
-    return {
-      headerBg,
-      date: '',
-      show: false,
-      username: '',
-      password: '',
-    };
-  },
-  methods: {
-    formatDate(date: Date) {
-      return `${date.getMonth() + 1}/${date.getDate()}`;
-    },
-    onConfirm(date: Date) {
-      this.show = false;
-      this.date = this.formatDate(date);
-    },
-    onSubmit(values:any) {
-      console.log('submit', values);
-    },
-  },
-});
+import Home from './Home.class';
+export default Home;
 </script>
 <style lang="less">
 .home-top {
@@ -85,7 +63,7 @@ export default defineComponent({
     font-size: 40px;
     position: absolute;
     left: 50%;
-    top: 280px;
+    top: 320px;
     transform: translateX(-50%);
     color: #fff;
   }
