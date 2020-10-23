@@ -1,24 +1,5 @@
-# vue_3
+# vue3.0 + vant ui示例
 
-## Project setup
-```
-yarn install
-```
+[vw适配方案](./vant_vm)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[rem适配方案]()
